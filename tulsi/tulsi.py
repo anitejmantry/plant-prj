@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 from tkinter import Tk, filedialog, messagebox
 
 
-# ------------------------------------------------------------
+
 # Select image
-# ------------------------------------------------------------
+
 
 def select_image(title):
     root = Tk()
@@ -23,10 +23,7 @@ def select_image(title):
 
     return file_path
 
-
-# ------------------------------------------------------------
 # Load and prepare image
-# ------------------------------------------------------------
 
 def prepare_image(image_path):
 
@@ -49,10 +46,7 @@ def prepare_image(image_path):
 
     return rgb_image
 
-
-# ------------------------------------------------------------
 # Compare two images
-# ------------------------------------------------------------
 
 def compare_images(reference, input_image):
 
@@ -130,10 +124,8 @@ def compare_images(reference, input_image):
 
     return difference, difference_mask, difference_percentage
 
-
-# ------------------------------------------------------------
 # Main program
-# ------------------------------------------------------------
+
 
 print()
 print("==============================================")
@@ -142,9 +134,7 @@ print("==============================================")
 print()
 
 
-# ------------------------------------------------------------
 # Select reference image
-# ------------------------------------------------------------
 
 print("Select the reference Tulsi plant image.")
 
@@ -162,10 +152,8 @@ if not reference_path:
 
     exit()
 
-
-# ------------------------------------------------------------
 # Select new image
-# ------------------------------------------------------------
+
 
 print("Select the Tulsi plant image to test.")
 
@@ -194,10 +182,8 @@ print(input_path)
 
 print()
 
-
-# ------------------------------------------------------------
 # Prepare images
-# ------------------------------------------------------------
+
 
 reference_image = prepare_image(
     reference_path
@@ -227,10 +213,8 @@ if input_image is None:
 
     exit()
 
-
-# ------------------------------------------------------------
 # Compare
-# ------------------------------------------------------------
+
 
 difference, difference_mask, difference_percentage = (
     compare_images(
@@ -245,10 +229,7 @@ print(
     f"{difference_percentage:.2f}%"
 )
 
-
-# ------------------------------------------------------------
 # Infection threshold
-# ------------------------------------------------------------
 
 # This value can be changed after testing
 # with your actual Tulsi images.
@@ -297,10 +278,8 @@ print(
 
 print()
 
-
-# ------------------------------------------------------------
 # Create highlighted difference image
-# ------------------------------------------------------------
+
 
 highlighted = input_image.copy()
 
@@ -323,10 +302,7 @@ highlighted = cv2.addWeighted(
     0
 )
 
-
-# ------------------------------------------------------------
 # Display results
-# ------------------------------------------------------------
 
 plt.figure(
     figsize=(15, 5)
@@ -395,10 +371,7 @@ plt.tight_layout()
 
 plt.show()
 
-
-# ------------------------------------------------------------
 # Final message
-# ------------------------------------------------------------
 
 root = Tk()
 root.withdraw()
